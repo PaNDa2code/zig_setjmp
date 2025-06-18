@@ -18,9 +18,13 @@ pub fn main() void {
 
     if (val == 0) {
         std.debug.print("setjmp returned 0\n", .{});
-        longjmp(&buf, 42);
+        goOut();
     } else {
         std.debug.print("longjmp returned {}\n", .{val});
     }
+}
+
+fn goOut() void {
+    longjmp(&buf, 42);
 }
 ```
