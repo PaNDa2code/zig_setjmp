@@ -5,7 +5,7 @@ pub fn build(b: *std.Build) void {
 
     const optimize = b.standardOptimizeOption(.{});
 
-    const lib_mod = b.createModule(.{
+    const lib_mod = b.addModule(.{
         .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
@@ -35,7 +35,7 @@ pub fn build(b: *std.Build) void {
 
     const lib = b.addLibrary(.{
         .linkage = .static,
-        .name = "zig_setjmp",
+        .name = "setjmp",
         .root_module = lib_mod,
     });
 
